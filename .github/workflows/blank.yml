@@ -1,6 +1,25 @@
-git clone https://github.com/notesadcc-design/NQ-Intraday-Level-Generator
-cd NQ-Intraday-Level-Generator
-pip install -r requirements.txt
-python intraday_levels.py --demo        # test immediately, no internet
-python intraday_levels.py               # live data via yfinance
-python intraday_levels.py --ticker NQ=F # direct NQ futures
+name: Run NQ Intraday Level Generator
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run script
+        run: |
+          python intraday_levels.py --demo
