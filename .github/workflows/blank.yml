@@ -1,3 +1,18 @@
 git clone https://github.com/notesadcc-design/NQ-Intraday-Level-Generator
-cd nq-intraday-levels
+cd intraday-levels
 pip install -r requirements.txt
+
+# Default: QQQ as NQ proxy (×42), live data
+python intraday_levels.py
+
+# NQ futures direct (if your broker/feed exposes NQ=F)
+python intraday_levels.py --ticker NQ=F
+
+# Demo mode — no internet, synthetic data, test the output
+python intraday_levels.py --demo
+
+# Terminal report only, no chart
+python intraday_levels.py --no-chart
+
+# Skip JSON export
+python intraday_levels.py --export none
