@@ -1,4 +1,4 @@
-nname: Run NQ Intraday Level Generator
+name: Run NQ Intraday Level Generator
 
 on:
   workflow_dispatch:
