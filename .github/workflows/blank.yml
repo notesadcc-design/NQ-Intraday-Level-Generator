@@ -1,5 +1,5 @@
 git clone https://github.com/notesadcc-design/NQ-Intraday-Level-Generator
-cd intraday-levels
+cd NQ-Intraday-Level-Generator
 pip install -r requirements.txt
 
 # Default: QQQ as NQ proxy (×42), live data
