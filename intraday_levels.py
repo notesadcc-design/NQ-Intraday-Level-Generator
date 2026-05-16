@@ -942,36 +942,4 @@ def main():
 if __name__ == "__main__":
     main()
 
-name: Run NQ Intraday Level Generator
 
-on:
-  workflow_dispatch:
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
-
-      - name: Run generator
-        run: |
-          python intraday_levels.py --demo
-
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: nq-levels-output
-          path: |
-            charts/
-            data/
